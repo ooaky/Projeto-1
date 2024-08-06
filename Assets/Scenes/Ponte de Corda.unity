@@ -4061,7 +4061,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ad313a634ed21046939d320e6b651be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  life: 10
+  life: 50
   damage: 1.5
   canAccelerate: 0
   myObject: {fileID: 1516372531}

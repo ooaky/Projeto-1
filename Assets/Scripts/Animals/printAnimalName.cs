@@ -1,6 +1,9 @@
+using System.Linq;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
+
 
 public enum Animals
 {
@@ -12,6 +15,30 @@ public enum Animals
 
 public class printAnimalName : MonoBehaviour
 {
+
+    public UnityEvent eventCallback;
+
+
+    public EnemyBase enemyBase;
+
+    public List<GameObject> listofObjects;
+
+    private void Attack()
+    {
+        foreach (var o in listofObjects)
+        {
+            if (o != null)
+            {
+                var damagable = o.GetComponent<IDamageable<int>>();
+                if (damagable != null)
+                {
+                    damagable.Damage(1);
+                }
+            }
+        }
+    }
+
+
     public List<AnimalSetup> animalSetup;
 
 
@@ -56,18 +83,21 @@ public class printAnimalName : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.A))
         {
+            eventCallback.Invoke();
             //CheckSwitchCase(Animals.Dolphin);
             ShowTextByAnimal(Animals.Dolphin);
         }
         if (Input.GetKeyDown(KeyCode.S))
         {
+            enemyBase.Attack();
             //CheckSwitchCase(Animals.Shark);
-            ShowTextByAnimal(Animals.Shark);
+            //ShowTextByAnimal(Animals.Shark);
         }
         if (Input.GetKeyDown(KeyCode.D))
         {
+            Attack();
             //CheckSwitchCase(Animals.Whale);
-            ShowTextByAnimal(Animals.Whale);
+            //ShowTextByAnimal(Animals.Whale);
         }
     }
 

@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class Sphere : MonoBehaviour
 {
@@ -18,7 +19,7 @@ public class Sphere : MonoBehaviour
     [Header("Colour")]
     public Color color = Color.blue;
 
-    [Header("Inputs")]  
+    [Header("Inputs")]
     public KeyCode keycode = KeyCode.Space;
     #endregion
 
@@ -28,15 +29,34 @@ public class Sphere : MonoBehaviour
         color = newColor;
         life -= damage;
     }
+
+
+    /*public void Test()
+    {
+        Debug.Log("Test");
+    }
+
+    public void Test(int i)
+    {
+        Debug.Log("Test Int");
+    }
+
+    public void Test(float i)
+    {
+        Debug.Log("Test Float");
+    }*/
+
+
+
     void Start()
     {
-        
+
     }
 
     void Update()
     {
 
-        if(Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space))
         {
             ChangeColor(Color.magenta);
         }

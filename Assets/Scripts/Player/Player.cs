@@ -32,7 +32,7 @@ public class Player : MonoBehaviour
 
     }
 
-    private void SpawnObject()
+    public void SpawnObject()
     {
         var obj = PoolManager.GetPooledObject();
         obj.SetActive(true);

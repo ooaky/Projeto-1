@@ -39,6 +39,12 @@ public class printAnimalName : MonoBehaviour
     }
 
 
+    public void DebugLog()
+    {
+        Debug.Log("Click");
+    }
+
+
     public List<AnimalSetup> animalSetup;
 
 
